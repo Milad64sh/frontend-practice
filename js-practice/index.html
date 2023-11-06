@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header__navbar">
+        <div class="header__navbar__links">
+          <div class="header__navbar__links__link">
+            <a href="./calculate.html">calculate sum</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form class="conainer" id="convertor">
+      <div class="container__title">
+        <div class="container__title--text">Length Convertor</div>
+      </div>
+      <div class="container__inputs">
+        <div class="container__input">
+          <label for="kilo" class="container__inputs__label">Kilometers</label>
+          <input type="text" name="kilo" id="kilo" placeholder="Kilometers" />
+        </div>
+        <span>to</span>
+        <div class="container__input">
+          <label for="kilo" class="container__inputs__label">Miles</label>
+          <input type="text" name="mile" id="mile" placeholder="Miles" />
+        </div>
+      </div>
+      <div class="container__btns">
+        <div class="container__btns__btn">
+          <button type="submit" id="convert">convert</button>
+        </div>
+        <div class="container__btns__btn">
+          <button type="submit" id="reverse">reverse</button>
+        </div>
+        <div class="container__btns__btn">
+          <button type="submit" id="reset">reset</button>
+        </div>
+      </div>
+    </form>
+  </body>
+  <script src="./app.js" defer></script>
+</html>

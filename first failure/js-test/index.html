@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css">
+    <title>Questionnaire</title>
+  </head>
+  <body>
+    <h1>Questionnaire</h1>
+    <form class="questionnaireForm" id="questionnaireForm">
+      <div class="questionnaireForm__container">
+      <div class="questionnaireForm__firstP">
+        <span>I have</span>
+          <input type="number" id="dogCount" name="dogCount" min="1" max="5" /> dog<span id="pluralS">s</span>.
+      </div>
+      <br />
+      <div class="questionnaireForm__templates">
+      <template id="template1">
+        <select name="gender" id="gender" placeholder="She/He">
+          <option value="" selected>Select an option</option>
+          <option value="she">She</option>
+          <option value="he">He</option>
+        </select>
+       </template>
+       <template id="template2">
+       <span>is a</span>
+        <select name="adjective" id="adjective">
+          <option value="" selected>select an option</option>
+          <option value="loyal">Loyal</option>
+          <option value="mischievous ">Mischievous </option>
+          <option value="stubborn">Stubborn</option>
+          <option value="curious">Curious</option>
+          <option value="scruffy">Scruffy</option>
+          <option value="loving">Loving</option>
+        </select>
+       </template>
+       <template id="template3">
+        <input type="number" id="dogAge" name="dogAge" placeholder="your dog age"/>
+        <span>year-old</span>
+       </template>
+       <template id="template4">
+        <input type="text" id="dogBreed" name="dogBreed" placeholder="your dog breed"/>
+        <span>,</span>
+       </template>
+       <template id="template5">
+         <span>called</span>
+         <input type="text" id="dogName" name="dogName" placeholder="your dog name"/>
+         <span>.</span>
+       </template>
+       </div>
+       </div>
+      </form>
+      <div class="questionnaireForm__templatesPlaceholder" id="result"></div>
+      <p>
+When it comes to food, <span class="dogNamePlaceholder"></span> <select name="pickiness" id="pickiness">
+  <option value="" selected>select an option</option>
+          <option value="is very picky">is very picky</option>
+          <option value="can be picky">can be picky</option>
+          <option value="is a good eater">is a good eater</option>
+          <option value="will eat anything">will eat anything</option>
+</select>.
+</p>
+<p>I’m hoping Canine Prime will help <span class="dogNamePlaceholder"></span>’s problems with:</p>
+<form id="symptomsForm">
+  <div class="row">
+    <div class="column">
+      <input type="checkbox" id="soreJoints" name="symptom" value="Sore Joints" />
+      <label for="soreJoints">Sore Joints</label>
+    </div>
+    <div class="column">
+      <input type="checkbox" id="vomiting" name="symptom" value="Vomiting" />
+      <label for="vomiting">Vomiting</label>
+    </div>
+    <div class="column">
+      <input type="checkbox" id="diarrhea" name="symptom" value="Diarrhoea" />
+      <label for="diarrhea">Diarrhea</label>
+    </div>
+    <div class="column">
+      <input type="checkbox" id="itchySkin" name="symptom" value="Itchy Skin" />
+      <label for="itchySkin">Itchy Skin</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <input type="checkbox" id="badTeeth" name="symptom" value="Bad Teeth" />
+      <label for="badTeeth">Bad Teeth</label>
+    </div>
+    <div class="column">
+      <input type="checkbox" id="anxiety" name="symptom" value="Anxiety" />
+      <label for="anxiety">Anxiety</label>
+    </div>
+    <div class="column">
+      <input type="checkbox" id="behaviorIssues" name="symptom" value="Behaviour Issues" />
+      <label for="behaviorIssues">Behavior Issues</label>
+    </div>
+    <div class="column">
+      <input type="checkbox" id="weakImmuneSystem" name="symptom" value="Weak Immune System" />
+      <label for="weakImmuneSystem">Weak Immune System</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <input type="checkbox" id="lowEnergyLevels" name="symptom" value="Low Energy Levels" />
+      <label for="lowEnergyLevels">Low Energy Levels</label>
+    </div>
+    <div class="column">
+      <input type="checkbox" id="dullCoat" name="symptom" value="Dull Coat" />
+      <label for="dullCoat">Dull Coat</label>
+    </div>
+    <div class="column">
+      <input type="checkbox" id="constipation" name="symptom" value="Constipation" />
+      <label for="constipation">Constipation</label>
+    </div>
+    <div class="column">
+      <input type="checkbox" id="foodAllergies" name="symptom" value="Food Allergies" />
+      <label for="foodAllergies">Food Allergies</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <input type="checkbox" id="other" name="symptom" value="Other" />
+      <label for="other">(Other)</label>
+    </div>
+  </div>
+
+  <button type="button" onclick="displaySelectedSymptoms()">Submit</button>
+</form>
+
+  <div id="selectedSymptoms"></div>
+  <div id="selectedSymptoms"></div>
+  <h1>Calculation</h1>
+  <div class="calculation__firstP">
+    <p>Checking <span class="dogNamePlaceholder"></span>’s <span id="dogAdjPlaceholder"></span> levels…</p>
+  </div>
+  <div class="calculation__secondP">
+  <p>Finding the best plan for <span class="dogNamePlaceholder"></span>’s <span class="painPoints"></span>...</p>
+  </div>
+  <h1>Recommendation</h1>
+  <p>Based on your responses, Dr Lazaris recommends you start with… 3 Jars!</p>
+  <p>The longer you commit to using Canine Prime, the more likely it will help <span class="dogNamePlaceholder"></span> fight off <span class="painPoints"></span> once and for all.</p>
+  <p id="hiddenParagraph" style="display: none;">It’s not a problem that <span class="dogNamePlaceholder"></span> <span id="pickinessPlaceholder"></span>. Even the fussiest dogs can’t resist Canine Prime, because of its natural bacon flavour!</p>
+  <p>Get started now with your Dr Lazaris approved plan of 3 Jars, to make <span class="dogNamePlaceholder"></span> the happiest and healthiest <span id="breedPlaceholder"></span> possible…</p>
+</body>
+</html>
+
+
+
+
+    <script src="./app.js"></script>
+  </body>
+</html>

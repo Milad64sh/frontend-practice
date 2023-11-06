@@ -1,0 +1,53 @@
+/* Style for rows */
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+/* Style for columns */
+.column {
+  flex: 1;
+  margin-right: 10px;
+}
+
+/* Center the "Other" checkbox in its row */
+.row:last-child .column {
+  display: flex;
+  align-items: center;
+}
+
+/* Remove the margin from the last column to avoid extra space */
+.row:last-child .column:last-child {
+  margin-right: 0;
+}
+
+/* Style for the button */
+button {
+  display: block;
+  margin-top: 10px;
+  background-color: #0074d9;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.questionnaireForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+.questionnaireForm__container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
