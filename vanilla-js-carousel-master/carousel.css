@@ -51,7 +51,9 @@
 }
 
 .carousel-item-3 {
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25), 0 0 100px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
+    0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25),
+    0 0 100px rgba(255, 255, 255, 0.1);
   height: calc(var(--carousel-item-height) * 2);
   opacity: 1;
   left: 50%;
@@ -75,7 +77,7 @@
 }
 
 /* carousel button styles */
-.carousel-control {  
+.carousel-control {
   background-color: transparent;
   border: 2px solid;
   border-radius: 4px;
@@ -96,12 +98,12 @@
 /* previous button */
 .carousel-control-previous::after,
 .carousel-control-previous::before {
-  box-sizing: border-box; 
+  box-sizing: border-box;
   content: '';
   display: block;
   height: 8px;
   position: absolute;
-  top: 5px
+  top: 5px;
 }
 .carousel-control-previous::before {
   background: currentColor;
@@ -121,11 +123,11 @@
 .carousel-control-next::after,
 .carousel-control-next::before {
   box-sizing: border-box;
-  content: "";
+  content: '';
   display: block;
   height: 8px;
   position: absolute;
-  top: 5px
+  top: 5px;
 }
 .carousel-control-next::before {
   background: currentColor;
@@ -147,7 +149,7 @@
   border-left: 6px solid;
   border-top: 5px solid transparent;
   box-sizing: border-box;
-  content: "";
+  content: '';
   display: block;
   height: 10px;
   position: absolute;
@@ -163,12 +165,12 @@
   border-right: 2px solid;
   border-top: 0;
   box-sizing: border-box;
-  content: "";
+  content: '';
   display: block;
   height: 6px;
   position: absolute;
   left: 6px;
-  top: 6px; 
+  top: 6px;
   width: 6px;
 }
 
@@ -178,7 +180,7 @@
   background: currentColor;
   border-radius: 5px;
   box-sizing: border-box;
-  content: "";
+  content: '';
   display: block;
   height: 2px;
   position: absolute;
