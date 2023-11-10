@@ -118,6 +118,7 @@ class Carousel {
         index
       ].className = `carousel-item carousel-item-${item}`;
     });
+    console.log(this.carouselContainer.children);
 
     // Using the first 5 items in data array update content of carousel items in view
     this.carouselData.slice(0, 5).forEach((data, index) => {

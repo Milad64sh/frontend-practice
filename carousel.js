@@ -5,55 +5,46 @@ const nextBtn = document.getElementById('nextBtn');
 
 // fetch images
 let images = [];
-let currImgIdx = 0;
+const positions = [1, 2, 3, 4, 5, 6, 7, 8];
 
-function updateSlideshow() {
-  // Clear the container
-  container.innerHTML = '';
-  const positions = [-2, -1, 0, 1, 2];
-
-  // Iterate through the images to display
-  positions.forEach((position) => {
-    let imageIndex = (currImgIdx + position + images.length) % images.length;
-    const img = document.createElement('img');
-    img.src = images[imageIndex].src;
-    img.className = `header__images__img images__img-${currImgIdx}`;
-    console.log(img.className);
-    img.style.opacity = getOpacity(position);
-    console.log(img.style.opacity);
-    container.appendChild(img);
-  });
-}
-function getOpacity(position) {
-  // Define the opacity values for the positions (-2, -1, 0, 1, 2)
-  const opacities = [0.4, 0.7, 1, 0.7, 0.4];
-
-  // Calculate the index based on the position
-  const index = position + 2;
-
-  // Return the corresponding opacity
-  return opacities[index];
-}
+carouselData();
 
 async function carouselData() {
   try {
     const response = await fetch('./img.json');
     const data = await response.json();
     images = data.images;
-    updateSlideshow();
   } catch (error) {
     console.error('Error fetching or processing data:', error);
   }
 }
-
+function setImageCarousel() {
+  images.forEach((item, index) => {
+    const img = item.src
+      ? document.createElement('img')
+      : document.createElement('div');
+    container.append(img);
+    img.className = `header__images__img images__img-${index + 1}`;
+    img.src = item.src;
+    img.setAttribute('loading', 'lazy');
+    img.setAttribute('data-index', `${index + 1}`);
+  });
+}
 function prevBtnClicked() {
-  currImgIdx = (currImgIdx - 1 + images.length) % images.length;
-
-  carouselData();
+  images.unshift(images.pop());
+  positions.push(positions.shift());
+  positions.forEach((position, index) => {
+    container.children[
+      index
+    ].className = `header__images__img images__img-${position}`;
+  });
+  images.slice(0, 8).forEach((image, index) => {
+    document.querySelector(`.images__img-${index + 1}`).src = image.src;
+  });
 }
 
 prevBtn.addEventListener('click', prevBtnClicked);
-window.addEventListener('load', carouselData);
+window.addEventListener('load', setImageCarousel);
 
 function next() {
   // Update order of items in data array to be shown in carousel

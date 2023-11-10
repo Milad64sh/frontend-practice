@@ -80,6 +80,7 @@ body {
   gap: 16px;
   margin-top: 64px;
 }
+
 .header__images__img {
   width: 260px;
   height: 237.01px;
@@ -156,70 +157,75 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    top: 20%;
+    top: 30%;
+    z-index: 0;
   }
 
   .header__images__img {
     position: absolute;
-    transform: translateX(-50%);
     transition: all 0.3s ease-in-out;
     z-index: 0;
   }
-  .images__img-0 {
-    position: absolute;
-    left: 50%;
-    margin-bottom: 30px;
-    z-index: 3;
-  }
   .images__img-1 {
     position: absolute;
-    left: 55%;
-    margin-bottom: 25px;
     z-index: 2;
+    opacity: 1;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
+      0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25),
+      0 0 100px rgba(255, 255, 255, 0.1);
+    width: 300px;
+    height: 273.22px;
   }
 
   .images__img-2 {
     position: absolute;
-    left: 60%;
-    margin-bottom: 20px;
+    left: 27%;
+    opacity: 1;
+    width: 260px;
+    height: 236px;
     z-index: 1;
   }
 
   .images__img-3 {
     position: absolute;
-    left: 55%;
-    margin-bottom: 15px;
-    display: block;
-    z-index: 1;
+    left: 34%;
+    height: 227px;
+    width: 250px;
   }
   .images__img-4 {
     position: absolute;
-    margin-bottom: 15px;
-    left: 60%;
+
+    left: 7%;
+    height: 236px;
+    width: 260px;
     z-index: 1;
   }
   .images__img-5 {
     position: absolute;
-    margin-bottom: 15px;
-    left: 60%;
-    z-index: 1;
+    height: 227px;
+    width: 250px;
+    left: 2%;
   }
   .images__img-6 {
     position: absolute;
-    margin-bottom: 15px;
-    left: 60%;
-    z-index: 1;
+
+    display: none;
+    height: 236px;
+    width: 260px;
   }
   .images__img-7 {
     position: absolute;
-    margin-bottom: 15px;
-    left: 60%;
-    z-index: 1;
-  }
 
-  .header__images img {
+    display: none;
+    height: 236px;
+    width: 260px;
+  }
+  .images__img-8 {
     position: absolute;
-    transition: transform 0.3s;
+
+    display: none;
+    height: 236px;
+    width: 260px;
   }
 
   .header__images__btn {
