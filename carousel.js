@@ -10,14 +10,10 @@ const positions = [1, 2, 3, 4, 5, 6, 7, 8];
 carouselData();
 
 async function carouselData() {
-  try {
-    const response = await fetch('./img.json');
-    const data = await response.json();
-    images = data.images;
-    console.log(images);
-  } catch (error) {
-    console.error('Error fetching or processing data:', error);
-  }
+  const response = await fetch('./img.json');
+  const data = await response.json();
+  images = data.images;
+  setImageCarousel();
 }
 function setImageCarousel() {
   images.forEach((item, index) => {
@@ -31,6 +27,7 @@ function setImageCarousel() {
     img.setAttribute('data-index', `${index + 1}`);
   });
 }
+window.addEventListener('load', setImageCarousel);
 function prevBtnClicked() {
   images.unshift(images.pop());
   positions.push(positions.shift());
@@ -44,9 +41,6 @@ function prevBtnClicked() {
   });
 }
 
-prevBtn.addEventListener('click', prevBtnClicked);
-window.addEventListener('load', setImageCarousel);
-
 function nextBtnCarousel() {
   images.push(images.shift());
   positions.unshift(positions.pop());
@@ -59,4 +53,6 @@ function nextBtnCarousel() {
     document.querySelector(`.images__img-${index + 1}`).src = image.src;
   });
 }
+
+prevBtn.addEventListener('click', prevBtnClicked);
 nextBtn.addEventListener('click', nextBtnCarousel);
