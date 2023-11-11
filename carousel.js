@@ -14,6 +14,7 @@ async function carouselData() {
     const response = await fetch('./img.json');
     const data = await response.json();
     images = data.images;
+    console.log(images);
   } catch (error) {
     console.error('Error fetching or processing data:', error);
   }
@@ -46,15 +47,16 @@ function prevBtnClicked() {
 prevBtn.addEventListener('click', prevBtnClicked);
 window.addEventListener('load', setImageCarousel);
 
-function next() {
-  // Update order of items in data array to be shown in carousel
-  container.push(container.shift());
-
-  // Using the first 5 items in data array update content of carousel items in view
-  container.slice(0, 5).forEach((data, index) => {
-    document.querySelector(`.carousel-item-${index + 1}`).src = data.src;
+function nextBtnCarousel() {
+  images.push(images.shift());
+  positions.unshift(positions.pop());
+  positions.forEach((position, index) => {
+    container.children[
+      index
+    ].className = `header__images__img images__img-${position}`;
+  });
+  images.slice(0, 8).forEach((image, index) => {
+    document.querySelector(`.images__img-${index + 1}`).src = image.src;
   });
 }
-nextBtn.addEventListener('click', () => {
-  previous();
-});
+nextBtn.addEventListener('click', nextBtnCarousel);

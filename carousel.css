@@ -164,10 +164,12 @@ body {
   .header__images__img {
     position: absolute;
     transition: all 0.3s ease-in-out;
+
     z-index: 0;
+    width: 250px;
+    height: 227px;
   }
   .images__img-1 {
-    position: absolute;
     z-index: 2;
     opacity: 1;
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
@@ -175,57 +177,54 @@ body {
       0 0 100px rgba(255, 255, 255, 0.1);
     width: 300px;
     height: 273.22px;
+    left: 12%;
   }
 
   .images__img-2 {
-    position: absolute;
     left: 27%;
     opacity: 1;
     width: 260px;
     height: 236px;
     z-index: 1;
+    opacity: 0.7;
   }
 
   .images__img-3 {
-    position: absolute;
     left: 34%;
-    height: 227px;
     width: 250px;
+    height: 227px;
+    opacity: 0.4;
   }
   .images__img-4 {
-    position: absolute;
-
     left: 7%;
     height: 236px;
     width: 260px;
     z-index: 1;
+    opacity: 0.7;
   }
   .images__img-5 {
-    position: absolute;
     height: 227px;
     width: 250px;
     left: 2%;
+    opacity: 0.4;
   }
   .images__img-6 {
-    position: absolute;
-
-    display: none;
-    height: 236px;
-    width: 260px;
+    height: 227px;
+    width: 250px;
+    left: 2%;
+    opacity: 0.4;
   }
   .images__img-7 {
-    position: absolute;
-
-    display: none;
-    height: 236px;
-    width: 260px;
+    height: 227px;
+    width: 250px;
+    left: 2%;
+    opacity: 0.4;
   }
   .images__img-8 {
-    position: absolute;
-
-    display: none;
-    height: 236px;
-    width: 260px;
+    height: 227px;
+    width: 250px;
+    left: 2%;
+    opacity: 0.4;
   }
 
   .header__images__btn {
