@@ -28,6 +28,7 @@ function setImageCarousel() {
   });
 }
 window.addEventListener('load', setImageCarousel);
+
 function prevBtnClicked() {
   images.unshift(images.pop());
   positions.push(positions.shift());
