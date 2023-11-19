@@ -1,16 +1,28 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'bundle.[contenthash].js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, './dist'),
-    publicPath: '',
+    publicPath: '/',
   },
   mode: 'development',
+  devServer: {
+    compress: true,
+    port: 9000,
+    allowedHosts: 'auto',
+    hot: true,
+    static: {
+      directory: path.resolve(__dirname, './dist'),
+    },
+    devMiddleware: {
+      index: 'index.html',
+      writeToDisk: true,
+    },
+  },
   module: {
     rules: [
       {
@@ -53,7 +65,7 @@ module.exports = {
     // Use to change html file, because after creating new hashed files in dist folder the reference to those files should be changed in html file
     new HtmlWebpackPlugin({
       title: 'Hello World',
-      filename: 'subfolder/custom_filename.html',
+      filename: 'index.html',
       meta: {
         description: 'Some description',
       },

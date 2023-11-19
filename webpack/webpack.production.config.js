@@ -2,15 +2,25 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+import React from 'react';
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    'hello-world': './src/index.js',
+    'image-page': './src/img.js',
+  },
   output: {
-    filename: 'bundle.[contenthash].js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, './dist'),
     publicPath: '',
   },
   mode: 'production',
+  optimization: {
+    splitChunks: {
+      chunk: 'all',
+      minSize: 3000,
+    },
+  },
   module: {
     rules: [
       {
@@ -49,17 +59,26 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'styles.[contenthash].css',
+      filename: '[name].[contenthash].css',
     }),
     new CleanWebpackPlugin(),
 
     // Use to change html file, because after creating new hashed files in dist folder the reference to those files should be changed in html file
     new HtmlWebpackPlugin({
+      filename: 'hello-world.html',
+      chunks: ['hello-world'],
       title: 'Hello World',
-      filename: 'subfolder/custom_filename.html',
-      meta: {
-        description: 'Some description',
-      },
+      template: 'src/page-template.html',
+      description: 'hello world',
+      minify: false,
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'image-page.html',
+      chunks: ['image-page'],
+      title: 'Image Page',
+      template: 'src/page-template.html',
+      description: 'Image page',
+      minify: false,
     }),
   ],
 };
